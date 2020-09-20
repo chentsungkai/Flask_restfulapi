@@ -1,0 +1,47 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Register</title>
+</head>
+   <body>
+
+     <h2 style = "text-align: center;">Register</h2>
+
+      {% for message in form.user.errors %}
+         <div>{{ message }}</div>
+      {% endfor %}
+
+      {% for message in form.email.errors %}
+         <div>{{ message }}</div>
+      {% endfor %}
+
+      <form action = "http://localhost:5000/register" method = post>
+         <fieldset>
+            <legend>Please fill the form </legend>
+            {{ form.hidden_tag() }}
+
+            <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+               {{ form.user.label }}<br>
+               {{ form.user }}
+               <br>
+
+               {{ form.email.label }}<br>
+               {{ form.email }}
+               <br>
+
+               {{ form.password.label }}<br>
+               {{ form.password }}
+               <br>
+
+               {{ form.confirm_password.label }}<br>
+               {{ form.confirm_password }}
+               <br>
+               {{ form.submit }}
+            </div>
+
+         </fieldset>
+      </form>
+
+   </body>
+</html>
+
